@@ -1,0 +1,11 @@
+# Node build artifacts
+node_modules
+npm-debug.log
+.git.bak
+
+# VS Code
+.vscode
+
+# Local development
+*.env
+*.dev
