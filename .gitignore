@@ -9,3 +9,6 @@ npm-debug.log
 # Local development
 *.env
 *.dev
+/.vs/config/applicationhost.config
+/SeleniumDemoJS.sln
+/.vs/SeleniumDemoJS/v14
