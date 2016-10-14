@@ -30,7 +30,7 @@ module.exports = {
       .click()
       .then(function() { driver.sleep(5000) });
     
-    driver.wait(until.titleIs('Chattanooga, Tennessee - Wikipedia, the free encyclopedia'), 1000);
+    driver.wait(until.titleIs('Chattanooga, Tennessee - Wikipedia'), 1000);
     driver.quit();
   }
 

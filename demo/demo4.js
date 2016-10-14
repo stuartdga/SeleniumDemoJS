@@ -44,7 +44,7 @@ module.exports = {
         driver.findElement(By.xpath('//*[@id="search-form"]/fieldset/button'))
             .click()
             .then(function () { driver.sleep(3000) });
-        driver.wait(until.titleIs('Chattanooga, Tennessee - Wikipedia, the free encyclopedia'), 1000);
+        driver.wait(until.titleIs('Chattanooga, Tennessee - Wikipedia'), 1000);
         driver.quit();
     },
 

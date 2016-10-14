@@ -17,29 +17,33 @@ describe("Demonstrating webdriver promises", function () {
     });
 
     it("I open the website", function () {
-        driver.get("https://www.google.com");
+        driver.get('https://www.wikipedia.org/');
     });
 
     it("The title is Wikipedia", function () {
-        driver.getTitle().then(function (title) {
+        return driver.getTitle().then(function (title) {
             assert.equal(title, "Wikipedia");
         });
     });
 
     it("I enter the search", function () {
-        //driver.findElement(By.name('search')).sendKeys('Chattanooga');
-        var searchInput = driver.findElement(By.name('search'));
-        searchInput.sendKeys('Chattanooga')
-            .then(function (input) {
-                assert.equal(input.getAttribute('value'), 'Chattanooga');
-            });
+        driver.findElement(By.name('search'))
+            .sendKeys('Chattanooga')
+            .then(function () {
+                return driver.findElement(By.name('search')).getAttribute('value')
+                .then(function(value) {
+                    assert.equal(value, 'Chattanooga');
+                });
+            });    
     });
 
     it("The title changes", function () {
         driver.findElement(By.xpath('//*[@id="search-form"]/fieldset/button')).click();
-        driver.getTitle()
+        return driver.getTitle()
             .then(function (title) {
-                assert.equal(title, 'Chattanooga, Tennessee - Wikipedia, the free encyclopedia');
+                console.log(title);
+                assert.equal(title, 'Chattanooga, Tennessee - Wikipedia');
             });
     });
+
 });
